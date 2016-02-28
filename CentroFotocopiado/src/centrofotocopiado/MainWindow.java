@@ -1,6 +1,8 @@
 
 package centrofotocopiado;
 
+import javax.swing.JFrame;
+
 /**
  *
  * @author José Mario Naranjo Leiva
@@ -46,6 +48,11 @@ public class MainWindow extends javax.swing.JFrame {
         });
 
         bntSolAdministrativa.setText("Solicitud administrativa");
+        bntSolAdministrativa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bntSolAdministrativaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelOpcionesLayout = new javax.swing.GroupLayout(panelOpciones);
         panelOpciones.setLayout(panelOpcionesLayout);
@@ -100,8 +107,14 @@ public class MainWindow extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bntSolDocenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntSolDocenteActionPerformed
-        // TODO add your handling code here:
+       JFrame m = new SolicitudDocente();
+       m.setVisible(true);
     }//GEN-LAST:event_bntSolDocenteActionPerformed
+
+    private void bntSolAdministrativaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntSolAdministrativaActionPerformed
+       JFrame m = new SolicitudAdministrativa();
+       m.setVisible(true);
+    }//GEN-LAST:event_bntSolAdministrativaActionPerformed
 
     /**
      * @param args the command line arguments
