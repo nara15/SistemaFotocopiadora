@@ -38,4 +38,10 @@ public class Controlador {
         return pTotalCopias < 200;
     }
     
+    public boolean solicitarCopiasAdministrativas(String pNombreAdministrativo, int pCantOriginales, int pCantJuegos, int pTotalCopias,
+                                                    int pDeptoIndex, String pTipoDoc)
+    {
+        return true;
+    }
+    
 }

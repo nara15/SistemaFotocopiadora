@@ -5,16 +5,20 @@
  */
 package Vista;
 
+import Control.Controlador;
+
 /**
  *
  * @author jonaranjo
  */
 public class SolicitudAdministrativa extends javax.swing.JFrame {
 
+    Controlador controlador;
     /**
-     * Creates new form SolicitudAdministrativa
+     * Constructor
      */
     public SolicitudAdministrativa() {
+        controlador = new Controlador();
         initComponents();
         setLocationRelativeTo(null);
        
@@ -46,17 +50,18 @@ public class SolicitudAdministrativa extends javax.swing.JFrame {
         jSpinner3 = new javax.swing.JSpinner();
         jPanel2 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
-        spinnerCantOriginales = new javax.swing.JSpinner();
+        spinCantOriginales = new javax.swing.JSpinner();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        jSpinner5 = new javax.swing.JSpinner();
+        spinCantJuegos = new javax.swing.JSpinner();
         txtNombre1 = new javax.swing.JTextField();
-        jComboBox2 = new javax.swing.JComboBox();
+        cmbDepartamento = new javax.swing.JComboBox();
         jLabel11 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
-        jSpinner6 = new javax.swing.JSpinner();
+        spinCantCopias = new javax.swing.JSpinner();
         jLabel12 = new javax.swing.JLabel();
-        jComboBox3 = new javax.swing.JComboBox();
+        cmbTipoDoc = new javax.swing.JComboBox();
+        bntSolicitud = new javax.swing.JButton();
 
         jPanel1.setBackground(new java.awt.Color(204, 255, 255));
 
@@ -172,7 +177,12 @@ public class SolicitudAdministrativa extends javax.swing.JFrame {
             }
         });
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Escuela Matemática", "Item 2", "Item 3", "Item 4" }));
+        cmbDepartamento.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Contabilidad", "DOP", "Prensa", "Registro", "Recursos Humanos" }));
+        cmbDepartamento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbDepartamentoActionPerformed(evt);
+            }
+        });
 
         jLabel11.setText("Departamento");
 
@@ -180,7 +190,17 @@ public class SolicitudAdministrativa extends javax.swing.JFrame {
 
         jLabel12.setText("Tipo de documento");
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbTipoDoc.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Boleta", "Formulario", "Informativo"}));
+
+        bntSolicitud.setBackground(new java.awt.Color(0, 0, 255));
+        bntSolicitud.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        bntSolicitud.setForeground(new java.awt.Color(255, 255, 255));
+        bntSolicitud.setText("Enviar Solicitud");
+        bntSolicitud.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bntSolicitudActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -199,15 +219,16 @@ public class SolicitudAdministrativa extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(19, 19, 19)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(spinnerCantOriginales, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cmbDepartamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(spinCantOriginales, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtNombre1, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jSpinner6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 74, Short.MAX_VALUE)
-                                .addComponent(jSpinner5, javax.swing.GroupLayout.Alignment.LEADING))))
+                                .addComponent(spinCantCopias, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 74, Short.MAX_VALUE)
+                                .addComponent(spinCantJuegos, javax.swing.GroupLayout.Alignment.LEADING))
+                            .addComponent(bntSolicitud)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(cmbTipoDoc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(43, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -220,24 +241,26 @@ public class SolicitudAdministrativa extends javax.swing.JFrame {
                 .addGap(46, 46, 46)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
-                    .addComponent(spinnerCantOriginales, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(spinCantOriginales, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
-                    .addComponent(jSpinner5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(spinCantJuegos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(23, 23, 23)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel14)
-                    .addComponent(jSpinner6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(spinCantCopias, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
-                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cmbTipoDoc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(32, 32, 32)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cmbDepartamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel11))
-                .addGap(120, 120, 120))
+                .addGap(58, 58, 58)
+                .addComponent(bntSolicitud)
+                .addGap(39, 39, 39))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -254,7 +277,7 @@ public class SolicitudAdministrativa extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(40, 40, 40)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         pack();
@@ -264,14 +287,31 @@ public class SolicitudAdministrativa extends javax.swing.JFrame {
         txtNombre.setText("");
     }//GEN-LAST:event_txtNombreActionPerformed
 
-    private void txtNombre1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNombre1MouseClicked
+    private void cmbDepartamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbDepartamentoActionPerformed
         // TODO add your handling code here:
+    }//GEN-LAST:event_cmbDepartamentoActionPerformed
+
+    private void txtNombre1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNombre1MouseClicked
+        txtNombre1.setText("");
     }//GEN-LAST:event_txtNombre1MouseClicked
 
+    private void bntSolicitudActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntSolicitudActionPerformed
+
+        String nombreSolicitante = txtNombre1.getText();
+        int cantOriginales = (int) spinCantOriginales.getValue();
+        int cantJuegos= (int) spinCantJuegos.getValue();
+        String tipoDoc = (String) cmbTipoDoc.getSelectedItem();
+        int deptoIndex = (int) cmbDepartamento.getSelectedIndex();
+        
+        this.controlador.solicitarCopiasAdministrativas(nombreSolicitante, cantOriginales, cantJuegos, cantJuegos, deptoIndex, tipoDoc);
+       
+    }//GEN-LAST:event_bntSolicitudActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bntSolicitud;
+    private javax.swing.JComboBox cmbDepartamento;
+    private javax.swing.JComboBox cmbTipoDoc;
     private javax.swing.JComboBox jComboBox1;
-    private javax.swing.JComboBox jComboBox2;
-    private javax.swing.JComboBox jComboBox3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -290,11 +330,11 @@ public class SolicitudAdministrativa extends javax.swing.JFrame {
     private javax.swing.JSpinner jSpinner1;
     private javax.swing.JSpinner jSpinner2;
     private javax.swing.JSpinner jSpinner3;
-    private javax.swing.JSpinner jSpinner5;
-    private javax.swing.JSpinner jSpinner6;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
-    private javax.swing.JSpinner spinnerCantOriginales;
+    private javax.swing.JSpinner spinCantCopias;
+    private javax.swing.JSpinner spinCantJuegos;
+    private javax.swing.JSpinner spinCantOriginales;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtNombre1;
     // End of variables declaration//GEN-END:variables
