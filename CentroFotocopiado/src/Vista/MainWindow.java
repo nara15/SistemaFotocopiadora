@@ -1,5 +1,5 @@
 
-package centrofotocopiado;
+package Vista;
 
 import javax.swing.JFrame;
 
