@@ -300,10 +300,11 @@ public class SolicitudAdministrativa extends javax.swing.JFrame {
         String nombreSolicitante = txtNombre1.getText();
         int cantOriginales = (int) spinCantOriginales.getValue();
         int cantJuegos= (int) spinCantJuegos.getValue();
+        int cantCopias = (int) spinCantCopias.getValue();
         String tipoDoc = (String) cmbTipoDoc.getSelectedItem();
         int deptoIndex = (int) cmbDepartamento.getSelectedIndex();
         
-        this.controlador.solicitarCopiasAdministrativas(nombreSolicitante, cantOriginales, cantJuegos, cantJuegos, deptoIndex, tipoDoc);
+        this.controlador.solicitarCopiasAdministrativas(nombreSolicitante, cantOriginales, cantJuegos, cantCopias, deptoIndex, tipoDoc);
        
     }//GEN-LAST:event_bntSolicitudActionPerformed
 

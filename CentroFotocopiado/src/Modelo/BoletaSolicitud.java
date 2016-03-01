@@ -238,7 +238,6 @@ public class BoletaSolicitud {
 	 */
     @Override
 	public String toString() {
-		// TODO implement here
             String retornar = "";
             retornar += "Boleta número: "+ identificador+"\n";
             retornar += "Fecha: "+ fecha+"\n";
