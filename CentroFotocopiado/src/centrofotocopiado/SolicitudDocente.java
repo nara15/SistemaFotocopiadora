@@ -53,6 +53,11 @@ public class SolicitudDocente extends javax.swing.JFrame {
         jLabel3.setText("Cantidad de juegos");
 
         txtNombre.setText("Ingrese su nombre completo");
+        txtNombre.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtNombreMouseClicked(evt);
+            }
+        });
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Escuela Matemática", "Item 2", "Item 3", "Item 4" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
@@ -178,6 +183,10 @@ public class SolicitudDocente extends javax.swing.JFrame {
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void txtNombreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNombreMouseClicked
+        txtNombre.setText("");
+    }//GEN-LAST:event_txtNombreMouseClicked
 
     
 
