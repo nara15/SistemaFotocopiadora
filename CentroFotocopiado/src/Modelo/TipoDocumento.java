@@ -4,7 +4,7 @@ package Modelo;
  */
 public enum TipoDocumento {
 	Boleta,
-	CasoEstudio,
+	CasodeEstudio,
 	Examen,
 	Formulario,
 	Informativo,

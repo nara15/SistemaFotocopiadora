@@ -9,18 +9,18 @@ import java.util.*;
 import static java.util.Comparator.comparing;
 
 public class GestorSolicitudes  {
-
-    public GestorSolicitudes() {
-    listaAnuladas = new ArrayList<>();
-    listaAprobadas = new ArrayList<>();
-    listaProcesadas = new ArrayList<>();
     
-    }
-
     private ArrayList<BoletaSolicitud> listaAnuladas;
     private ArrayList<BoletaSolicitud> listaAprobadas;
     private ArrayList<BoletaSolicitud> listaProcesadas;
     
+    public GestorSolicitudes() 
+    {
+        listaAnuladas = new ArrayList<>();
+        listaAprobadas = new ArrayList<>();
+        listaProcesadas = new ArrayList<>();
+    }
+   
     /*Determina el total de copias hechas en el dia.*/
     public int generarCierre() {
         int totalCopias = 0;
@@ -35,9 +35,6 @@ public class GestorSolicitudes  {
         }
             listaAprobadas= new ArrayList<>();
         listaProcesadas.sort(comparing((boletaSolicitud) -> boletaSolicitud.getIdentificador()));
-//        for (BoletaSolicitud listaProcesada : listaProcesadas) {
-//            System.out.println(listaProcesada.getIdentificador());
-//        }
         return totalCopias;
     }
 
