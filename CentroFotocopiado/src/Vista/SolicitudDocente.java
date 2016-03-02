@@ -15,9 +15,13 @@ public class SolicitudDocente extends javax.swing.JFrame {
      * Constructor
      */
     public SolicitudDocente() {
-        controlador = new Controlador();
         initComponents();
         setLocationRelativeTo(null);
+    }
+    
+    public void setControlador(Controlador pControlador)
+    {
+        this.controlador = pControlador;
     }
 
     /**

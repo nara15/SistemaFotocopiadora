@@ -5,17 +5,27 @@
  */
 package Vista;
 
+import Control.Controlador;
+
 /**
  *
  * @author jonaranjo
  */
 public class EstadisticasWindow extends javax.swing.JFrame {
-
+    
+    private Controlador controlador;
     /**
-     * Creates new form EstadisticasWindow
+     * Constructor
      */
     public EstadisticasWindow() {
+        controlador = new Controlador();
         initComponents();
+        setLocationRelativeTo(null);
+    }
+    
+    public void setControlador(Controlador pControlador)
+    {
+        this.controlador = pControlador;
     }
 
     /**
@@ -27,24 +37,60 @@ public class EstadisticasWindow extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtAreaReporte = new javax.swing.JTextArea();
+        bntReporte = new javax.swing.JButton();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+
+        txtAreaReporte.setColumns(20);
+        txtAreaReporte.setRows(5);
+        jScrollPane1.setViewportView(txtAreaReporte);
+
+        bntReporte.setText("Generar Reporte");
+        bntReporte.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bntReporteActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(62, 62, 62)
+                .addComponent(bntReporte)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 104, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(70, 70, 70))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 404, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(52, 52, 52)
+                        .addComponent(bntReporte)))
+                .addContainerGap(57, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void bntReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntReporteActionPerformed
+        String reporte = this.controlador.generarReporte();
+        txtAreaReporte.setText(reporte);
+    }//GEN-LAST:event_bntReporteActionPerformed
+
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bntReporte;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea txtAreaReporte;
     // End of variables declaration//GEN-END:variables
 }

@@ -61,4 +61,10 @@ public class Controlador {
         return (pCantJuegos * pCantOriginales) < 200;
     }
     
+    
+    public String generarReporte()
+    {
+        return gestorSolicitudes.generarReporte();
+    }
+    
 }

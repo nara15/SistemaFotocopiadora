@@ -1,6 +1,7 @@
 
 package Vista;
 
+import Control.Controlador;
 import javax.swing.JFrame;
 
 /**
@@ -8,11 +9,13 @@ import javax.swing.JFrame;
  * @author José Mario Naranjo Leiva
  */
 public class MainWindow extends javax.swing.JFrame {
-
+    
+    private Controlador controlador;
     /**
      * Creates new form MainWindow
      */
     public MainWindow() {
+        controlador = new Controlador();
         initComponents();
         setLocationRelativeTo(null);
         getContentPane().setBackground(java.awt.Color.blue);
@@ -31,6 +34,7 @@ public class MainWindow extends javax.swing.JFrame {
         panelOpciones = new javax.swing.JPanel();
         bntSolDocente = new javax.swing.JButton();
         bntSolAdministrativa = new javax.swing.JButton();
+        bntReportes = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -54,6 +58,13 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
 
+        bntReportes.setText("Reporte");
+        bntReportes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bntReportesActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelOpcionesLayout = new javax.swing.GroupLayout(panelOpciones);
         panelOpciones.setLayout(panelOpcionesLayout);
         panelOpcionesLayout.setHorizontalGroup(
@@ -64,6 +75,10 @@ public class MainWindow extends javax.swing.JFrame {
                     .addComponent(bntSolAdministrativa, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(bntSolDocente, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(46, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelOpcionesLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(bntReportes)
+                .addGap(90, 90, 90))
         );
         panelOpcionesLayout.setVerticalGroup(
             panelOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -72,7 +87,9 @@ public class MainWindow extends javax.swing.JFrame {
                 .addComponent(bntSolDocente, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
                 .addComponent(bntSolAdministrativa, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(76, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addComponent(bntReportes)
+                .addContainerGap())
         );
 
         jLabel1.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
@@ -107,14 +124,22 @@ public class MainWindow extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bntSolDocenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntSolDocenteActionPerformed
-       JFrame m = new SolicitudDocente();
+       SolicitudDocente m = new SolicitudDocente();
+       m.setControlador(controlador);
        m.setVisible(true);
     }//GEN-LAST:event_bntSolDocenteActionPerformed
 
     private void bntSolAdministrativaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntSolAdministrativaActionPerformed
-       JFrame m = new SolicitudAdministrativa();
+       SolicitudAdministrativa m = new SolicitudAdministrativa();
+       m.setControlador(controlador);
        m.setVisible(true);
     }//GEN-LAST:event_bntSolAdministrativaActionPerformed
+
+    private void bntReportesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntReportesActionPerformed
+        EstadisticasWindow m = new EstadisticasWindow();
+        m.setControlador(controlador);
+        m.setVisible(true);
+    }//GEN-LAST:event_bntReportesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -152,6 +177,7 @@ public class MainWindow extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bntReportes;
     private javax.swing.JButton bntSolAdministrativa;
     private javax.swing.JButton bntSolDocente;
     private javax.swing.JLabel jLabel1;

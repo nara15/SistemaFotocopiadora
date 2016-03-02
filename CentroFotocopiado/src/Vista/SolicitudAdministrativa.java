@@ -18,10 +18,14 @@ public class SolicitudAdministrativa extends javax.swing.JFrame {
      * Constructor
      */
     public SolicitudAdministrativa() {
-        controlador = new Controlador();
         initComponents();
         setLocationRelativeTo(null);
        
+    }
+    
+    public void setControlador(Controlador pControlador)
+    {
+        this.controlador = pControlador;
     }
 
     /**
