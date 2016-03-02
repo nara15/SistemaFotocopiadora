@@ -10,6 +10,11 @@ public class BoletaSolicitud {
 
     /**
      * Default constructor
+     * @param fecha
+     * @param tipoDoc
+     * @param cantOriginales
+     * @param cantJuegos
+     * @param solicitante
      */
     public BoletaSolicitud(Date fecha, TipoDocumento tipoDoc, int cantOriginales, int cantJuegos, Empleado solicitante) {
         this.fecha = fecha;
