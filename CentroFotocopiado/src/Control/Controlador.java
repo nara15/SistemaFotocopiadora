@@ -10,6 +10,7 @@ import Modelo.Docente;
 import Modelo.Empleado;
 import Modelo.Escuela;
 import Modelo.TipoDocumento;
+import java.util.Date;
 
 /**
  *
@@ -29,7 +30,7 @@ public class Controlador {
     }
     
     /* Método para realizar una solicitud docente */
-    public boolean solicitarCopiasDocente(String pNombreDocente, int pCantOriginales, int pCantJuegos, int pTotalCopias,
+    public boolean solicitarCopiasDocente(String pNombreDocente, int pCantOriginales, int pCantJuegos,
                                         int pEscuelaIndex, String pTipoDoc, String pNomCurso, String pCodCurso)
     {
         Escuela escuela = Escuela.values()[pEscuelaIndex];
@@ -38,7 +39,7 @@ public class Controlador {
 
         Curso curso = new Curso(pCodCurso, pNomCurso);      
         TipoDocumento tdoc = Enum.valueOf(TipoDocumento.class, pTipoDoc.replaceAll("\\s", "")); //El replace es para eliminar espacios en blanco del nombre del tipo para su búsqueda
-        BoletaSolicitudDocente boleta = new BoletaSolicitudDocente(curso, null, tdoc, pCantOriginales, pCantJuegos, em);
+        BoletaSolicitudDocente boleta = new BoletaSolicitudDocente(curso, new Date(), tdoc, pCantOriginales, pCantJuegos, em);
         
         gestorSolicitudes.añadirBoleta(boleta);
         
@@ -46,15 +47,16 @@ public class Controlador {
     }
     
      /* Método para realizar una solicitud administrativa */
-    public boolean solicitarCopiasAdministrativas(String pNombreAdministrativo, int pCantOriginales, int pCantJuegos, int pTotalCopias,
+    public boolean solicitarCopiasAdministrativas(String pNombreAdministrativo, int pCantOriginales, int pCantJuegos,
                                                     int pDeptoIndex, String pTipoDoc)
     {
         Departamento depto = Departamento.values()[pDeptoIndex];
         Administrativo admi = new Administrativo(this.idAdministrativo, pNombreAdministrativo, depto);
         this.idAdministrativo ++;
         
+       
         TipoDocumento tdoc = Enum.valueOf(TipoDocumento.class, pTipoDoc.replaceAll("\\s", ""));
-        BoletaSolicitud boleta = new BoletaSolicitud(null, tdoc, pCantOriginales, pCantJuegos, admi);
+        BoletaSolicitud boleta = new BoletaSolicitud(new Date(), tdoc, pCantOriginales, pCantJuegos, admi);
         
         gestorSolicitudes.añadirBoleta(boleta);
         

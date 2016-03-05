@@ -46,8 +46,6 @@ public class SolicitudDocente extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         txtNomCurso = new javax.swing.JTextField();
         txtCodCurso = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
-        spinCantCopias = new javax.swing.JSpinner();
         jLabel8 = new javax.swing.JLabel();
         cmbTipoDoc = new javax.swing.JComboBox();
         bntSolicitud = new javax.swing.JButton();
@@ -77,11 +75,19 @@ public class SolicitudDocente extends javax.swing.JFrame {
 
         jLabel6.setText("Código del curso");
 
-        jLabel7.setText("Total de copias");
-
         jLabel8.setText("Tipo de documento");
 
         cmbTipoDoc.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Examen", "Caso de Estudio", "Quiz" }));
+
+        bntSolicitud.setBackground(new java.awt.Color(0, 0, 255));
+        bntSolicitud.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        bntSolicitud.setForeground(new java.awt.Color(255, 255, 255));
+        bntSolicitud.setText("Enviar Solicitud");
+        bntSolicitud.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bntSolicitudActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -94,16 +100,13 @@ public class SolicitudDocente extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(labelCantOriginales)
                             .addComponent(jLabel3)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel7))
+                            .addComponent(jLabel1))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(19, 19, 19)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(spinCantOriginales, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(spinCantCopias, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 74, Short.MAX_VALUE)
-                                        .addComponent(spinCantJuegos, javax.swing.GroupLayout.Alignment.LEADING))))
+                                    .addComponent(spinCantJuegos, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(11, 11, 11)
                                 .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -128,6 +131,10 @@ public class SolicitudDocente extends javax.swing.JFrame {
                                     .addComponent(txtCodCurso, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(0, 0, Short.MAX_VALUE)))
                         .addGap(25, 25, 25))))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(106, 106, 106)
+                .addComponent(bntSolicitud)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -144,11 +151,7 @@ public class SolicitudDocente extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(spinCantJuegos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(23, 23, 23)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(spinCantCopias, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
+                .addGap(62, 62, 62)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cmbEscuela, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4)
@@ -162,18 +165,10 @@ public class SolicitudDocente extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(txtCodCurso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                .addComponent(bntSolicitud)
+                .addContainerGap())
         );
-
-        bntSolicitud.setBackground(new java.awt.Color(0, 0, 255));
-        bntSolicitud.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        bntSolicitud.setForeground(new java.awt.Color(255, 255, 255));
-        bntSolicitud.setText("Enviar Solicitud");
-        bntSolicitud.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bntSolicitudActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -182,17 +177,13 @@ public class SolicitudDocente extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(51, 51, 51)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 132, Short.MAX_VALUE)
-                .addComponent(bntSolicitud)
-                .addGap(123, 123, 123))
+                .addContainerGap(408, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(40, 40, 40)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(bntSolicitud)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(29, Short.MAX_VALUE))
         );
 
@@ -207,13 +198,12 @@ public class SolicitudDocente extends javax.swing.JFrame {
        String nombreSolicitante = txtNombre.getText();
        int cantOriginales = (int) spinCantOriginales.getValue();
        int cantJuegos = (int) spinCantJuegos.getValue();
-       int cantCopias = (int) spinCantCopias.getValue();
        int nombEscuela = (int) cmbEscuela.getSelectedIndex();
        String tipoDoc = (String) cmbTipoDoc.getSelectedItem();
        String nomCurso = txtNomCurso.getText();
        String codCurso = txtCodCurso.getText();
        
-       boolean hayAutorizacion = controlador.solicitarCopiasDocente(nombreSolicitante, cantOriginales, cantJuegos, cantCopias, nombEscuela, tipoDoc, nomCurso, codCurso);
+       boolean hayAutorizacion = controlador.solicitarCopiasDocente(nombreSolicitante, cantOriginales, cantJuegos, nombEscuela, tipoDoc, nomCurso, codCurso);
             
        if ( ! hayAutorizacion)
        {
@@ -233,11 +223,9 @@ public class SolicitudDocente extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel labelCantOriginales;
-    private javax.swing.JSpinner spinCantCopias;
     private javax.swing.JSpinner spinCantJuegos;
     private javax.swing.JSpinner spinCantOriginales;
     private javax.swing.JTextField txtCodCurso;
