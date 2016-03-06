@@ -41,6 +41,8 @@ public class CentroFotocopiado {
         ges.añadirBoleta(boleta4);
         ges.añadirBoleta(boleta5);
         System.out.println(ges.generarReporte());
+        
+        System.out.println(ges.generarCierre());
         //System.out.println(ges.generarEmpMasCopias());
 //        float var = (float)1/3;
         //System.out.println(boleta3.getTotalCopias());

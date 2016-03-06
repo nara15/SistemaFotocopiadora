@@ -69,4 +69,19 @@ public class Controlador {
         return gestorSolicitudes.generarReporte();
     }
     
+    public String getPorceCopiasDocentes()
+    {
+        return gestorSolicitudes.generarPorcentajes();
+    }
+    
+    public String getEscuelaMasGastoPapel()
+    {
+        return gestorSolicitudes.generarFacultadMayorGasto();
+    }
+    
+    public String getEmpMasCopias()
+    {
+        return gestorSolicitudes.generarEmpMasCopias();
+    }
+    
 }

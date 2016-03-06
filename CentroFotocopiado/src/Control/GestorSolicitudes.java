@@ -125,7 +125,6 @@ public class GestorSolicitudes  {
         }
        
         for (BoletaSolicitud listaAnulada : listaAnuladas) {
-            //System.out.println(listaAnulada.getClass().getName().equals("Modelo.BoletaSolicitudDocente"));
             if (listaAnulada.getClass().getName().equals("Modelo.BoletaSolicitudDocente")) {
                 listaDocentesAnuladas.add(listaAnulada);
             }
@@ -133,11 +132,9 @@ public class GestorSolicitudes  {
             int totales = listaDocentesAnuladas.size() + listaDocentesAprobados.size();
             float porcetajeAprobadas = ((float)listaDocentesAprobados.size()/totales)*100, 
                     porcentajeAnuladas= ((float)listaDocentesAnuladas.size()/totales)*100;
-            //System.out.println((float)(listaDocentesAprobados.size()/totales)+"-"+porcetajeAprobadas);
-            //System.out.println((float)151/3);
             String retornar = "";
             retornar += "El total de copias fue de: "+totales + "\n";
-            retornar += "El total de copias aproobadas fue de: "+
+            retornar += "El total de copias aprobadas fue de: "+
                     listaDocentesAprobados.size() + "\n";
             retornar += "El total de copias anuladas fue de: "+
                     listaDocentesAnuladas.size() + "\n";
