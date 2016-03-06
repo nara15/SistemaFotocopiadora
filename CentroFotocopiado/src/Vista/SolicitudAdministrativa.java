@@ -6,6 +6,7 @@
 package Vista;
 
 import Control.Controlador;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -301,8 +302,17 @@ public class SolicitudAdministrativa extends javax.swing.JFrame {
         String tipoDoc = (String) cmbTipoDoc.getSelectedItem();
         int deptoIndex = (int) cmbDepartamento.getSelectedIndex();
         
-        this.controlador.solicitarCopiasAdministrativas(nombreSolicitante, cantOriginales, cantJuegos, deptoIndex, tipoDoc);
+        boolean autorizacion = this.controlador.solicitarCopiasAdministrativas(nombreSolicitante, cantOriginales, cantJuegos, deptoIndex, tipoDoc);
+        
+        if ( ! autorizacion)
+        {
+            JOptionPane.showMessageDialog(this, "¡Más de 200 copias! Esta solicitud debe ser autorizada antes de ser procesada"); 
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(this, "Solicitud enviada");
        
+        }
     }//GEN-LAST:event_bntSolicitudActionPerformed
 
     private void cmbTipoDocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbTipoDocActionPerformed

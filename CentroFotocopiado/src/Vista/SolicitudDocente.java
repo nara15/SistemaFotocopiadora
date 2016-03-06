@@ -209,6 +209,10 @@ public class SolicitudDocente extends javax.swing.JFrame {
        {
            JOptionPane.showMessageDialog(this, "¡Más de 200 copias! Esta solicitud debe ser autorizada antes de ser procesada");
        }
+       else
+       {
+           JOptionPane.showMessageDialog(this, "Solicitud enviada");
+       }
 
     }//GEN-LAST:event_bntSolicitudActionPerformed
 
